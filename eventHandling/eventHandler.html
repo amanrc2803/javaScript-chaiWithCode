@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html Events</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    
+<h2>Amazing images</h2>
+
+<ul id="images">
+    <li><img src="../images/Urban-planning-of-the-Harappan.jpg" id="harappa" alt=" Harappa Photos" width="200px"></li>
+    <li><img src="../images/paris-2024.png" id="olampics" title="Paris " alt="olampics photos"  width="200px"></li>
+    <li><img src="../images/elloraCave.jpg" id="ellora" title="Ellora Caves " alt="caves photos"  width="200px"> </li>
+    <li><img src="../images/ajantaCaves.jpg" id="ajantaCaves" title="Ajanta Caves" alt="AjantaCaves photo"  width="200px"></li>
+    <li><img src="../images/google.jpg" id="googleOffice" title="Google Office" alt="google photo"  width="200px"><a href="https://www.google.co.in/"  id="google" style="color: aliceblue;">Google.com.in</a></li>
+</ul>
+
+   <script>
+
+    /* 1. approach 
+    document.getElementById('harappa').onclick=(function(){
+        alert("harappa is clicked");
+    })  */ 
+
+    // second approach
+/*
+    document.getElementById('harappa').addEventListener('click', ()=>{
+        alert("harappa is clicked");
+    });
+*/   
+
+    // attachEvent()
+    // jQuery - on
+     /* type , timestamp , defaultPrevented,  target, srcElement, 
+    currentElement, clientX, clientY, screenX, screenY, altKey, ctrlKey, 
+    keyCode */
+
+    /* bubbling event occur -  child to parent mode so when child will call then parents 
+       is automatelically going to be call.  if addEventListener have false property(eventPropagation). 
+
+       we have to stop this event bubbling then we can use or set e.stopEventPropagation() method to stop it .
+       In addEventListener don't want to visit link or prevent the link visit
+        then we can use e.preventDefault() . 
+
+        Want to select parent part of particular tag using addEventlistner then we can use e.target.parentNode
+      
+        // removeLiTag.remove()-  whenever ul tag is clicked then all ul>li item will going to remove.
+
+
+    */
+
+  
+   /* 
+    document.getElementById('images').addEventListener('click', (e)=>{
+       console.log("clicked inside the ul");
+    }, false);
+    
+    document.getElementById('ajantaCaves').addEventListener('click', (e)=>{
+        console.log("ajanta is clicked");
+        e.stopPropagation();
+    }, false);
+
+
+   document.getElementById('google').addEventListener('click', (e)=>{
+    console.log('google link is clicked');    
+    e.preventDefault();
+    e.stopPropagation();
+   }, false);
+*/
+
+   document.querySelector('#images').addEventListener('click',(e)=>{
+    console.log(e.target.parentNode);
+   
+    if(e.target.tagName==='IMG' || e.target.tagName==='PNG'){
+        let removeLiTag = e.target.parentNode;
+        removeLiTag.remove();  
+
+    }
+    //removeLiTag.parentNode.removeChild(removeLiTag);
+   },false);
+
+
+
+   </script>
+
+</body>
+
+</html>

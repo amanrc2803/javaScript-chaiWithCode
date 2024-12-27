@@ -1,0 +1,184 @@
+
+Null --> value is assigned as a null/empty.
+Undefined --> value is not decided yet for assignment.
+
+
+Type coirsion --> automatically converion of a string.
+
+Let vs var
+Let - can't be redeclared or re - declared not allowed. But value we can reasign it.
+Var - we can redeclared or reassign.
+
+Const - redeclared or reassign is not possible.
+
+
+Console engine
+
+console.log([1,2,3,42]);
+
+//error message 
+console.error("something went wrong");
+
+//Warn message 
+console.warn(" this is just warning "); 
+
+//table console value
+console.table([1,2,3]);
+
+//Clear 
+console.clear();
+
+//Time
+console.time()
+console.log("Aman here");
+console.timeEnd();
+
+//Document will show at engine
+document
+
+
+If we are override the document selection then it will show null at that point. So we need to refresh it. 
+
+
+<h1 id= "main"> Hello darling</h1>
+document.getElementById("main");
+So this will show whole tag value or copy that tag itself.
+
+<h1 id= "main"> Hello darling</h1>
+
+
+document.getElementById("main").innerText
+
+==>
+Hello darling.
+
+
+let a= 100;
+let b= "100";
+
+//Type with variable check
+If (a===b)  {  
+console.log("A is equal to B")
+}
+
+//Alert 
+alert("This is alert box);
+
+//Confirm 
+confirm ("are you still looking for it?");
+
+//Get value in prompt box.
+var d= prompt("write your choice value");
+
+document.write("Aman Choudhary");
+
+
+//Functions 
+function myFunction(){
+console.log("ABC");
+}
+
+//Event
+<button onclick="myFunction()"> click here</button>
+This will show the click event .
+
+
+//Loop
+While loop 
+
+let a=10;
+while(a>=0){
+document.write(a);
+a=a-1;
+}
+
+Do while loop will execute at second time. But in first time it will directly loop will execute.
+
+do{
+document.write(a);
+a+=1;
+}
+while(a<=10);
+
+
+//For loop
+for(let a=10; a<10;a++){
+document.write(a);
+}
+
+//Continue 
+Will skip the particular iteration.
+
+//Break
+Will break the iteration in conditional statements.
+
+
+const Arr= [2,5,7,8];
+arr.push(6) - push or add the element at the end index of an array.
+
+arr.pop() - remove the element at the end index of an array.
+
+arr.unshift(9) --> add the element at the start index of an array.
+
+arr.shift()--> remove the element of an array from the start index.
+
+arr.reverse() -- reverse the array in lexical order.
+arr.sort() -- sort the array in lexical order.
+
+arr.sort(a,b)=>a-b  ==> in ascending order.
+
+Merge 2 array 
+Let b= [12,34,21];
+arr.concat(b);
+let c= arr+b;
+
+
+<h1> Rohit Sharma<h1>
+Query selector::
+
+Query selector will work only for first tag / matched element.
+
+Query selector All==>
+But query SelectorAll will work on every match element. It will create a nodelist matches element.
+
+Event Listener ==> 
+When we are dealing the event trigger scenario for that purpose we are using it.
+Like click, hover , keypress, mouse over and many more.
+
+let x= document.querySelector("h1);
+x.style.backgroundColor=red;
+x.style.color=red;
+
+
+setTimeOut( ()=>{
+x.style.backgroundColor=red;
+x.style.color=red;
+},2000
+);
+
+
+
+x.addEventListner("click", ()=>{
+x.style.backgroundColor=red;
+x.style.color=yellow;
+},5000);
+
+
+Mouse Enter ::> changes done after the mouseEnter
+x.addEventListner("mouseenter", ()=>{
+x.style.backgroundColor=red;
+x.style.color=yellow;
+},5000);
+
+Mouse Leave::> revert back the changes done with the help of mouseLeave
+
+x.addEventListner("mouseleave", function(){
+x.style.backgroundColor=red;
+x.style.color=yellow;
+},5000);
+
+
+Map is not iteratable with for of , for in loop.
+
+
+

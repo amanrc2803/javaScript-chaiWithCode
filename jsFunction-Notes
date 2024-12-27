@@ -1,0 +1,415 @@
+
+arr.forEach( ()=> );
+
+forEach function doesn't return any value.
+Because it's contain only undefined value.
+So it's using only for print the callback variable. But if i want to return a new arr then we have to take empty arr then based on requirement we have to push the element into it. It will work the same just like map/ filter & reduce function/ method.
+
+let newarr=[]
+arr.forEach( (item) =>{
+  newarr.push(item)
+} );
+
+console.log(newarr);
+
+
+Map , filter, reduce are used to return the value based on the requirements.
+
+Map return = whole new manipulated / changed object/arr with same length as compared to old one. 
+Return=> whole new arr/obj with same length []
+
+Filter return the filtered array based on condition we have provided.
+Return => A new arr/object 
+[]
+
+Reduce=>  return single value o/p = 12
+Just like I want sum of all arr element, min of arr, max of arr etc . Similar kind of tasks uses.
+But map & filter return the arr not value.
+Reduce keep track of two thing prev, curr or curr, next element for arithmetic operations.
+
+
+
+
+Don't need to add return keyword in implicit return keyword.
+arr.map( ()=> );
+
+If I want to add explicit return statement 
+Using return keyword then we can use {} culy braces.
+
+i/p arr= [1,2,3],     o/p: arr=[1,4,9]
+arr.map( (num)=> {
+return num*num
+} );
+
+
+arr.filter( (item)=> item >1);
+with return keyword 
+arr.filter( (item)=> {return item>1 });
+O/p= [4,9]
+
+arr.reduce( (prev, item)=> item +prev );
+with return keyword 
+arr.reduce( (prev, item)=> { return  item+prev
+} );
+
+
+Chaining=> 
+
+const newarr=        arr.map(()=>() ).map(()=>{}).filter( ()=> )
+
+
+
+const employeeDetails = [
+  {empId: 24,
+    empName: "Aman Choudhary",
+    empAddress:"Navi Mumbai",
+    designation: " Java Developer"
+  },
+  {empId: 05,
+    empName: "Aniket chavan",
+    empAddress:"Navi Mumbai",
+    designation: " Java Developer"},
+    {empId: 07,
+    empName: "Shivani Tomer",
+    empAddress:"Masore",
+    designation: " Data analytics"},
+    
+     {empId: 02,
+    empName: "Shingh Vikas",
+    empAddress:"Bangluru",
+    designation: " CPP Developer"},
+ {empId: 08,
+    empName: "Ram Nisad",
+    empAddress:"Thane",
+    designation: " MERN Stack Dev"}
+  
+]
+employeeDetails.forEach((item)=>
+  
+  console.log(`Employee Id: ${item.empId} & Name is : ${item.empName}`)
+)
+
+
+let ans=[];
+for(let i=0;i<employeeDetails.length;i++){
+   if(i>=1){
+     ans.push(employeeDetails[i]);
+   }
+}
+console.log(...ans);
+
+
+
+let ans=[];
+for(let num of employeeDetails){
+  
+   
+     ans.push(num);
+     console.log(...ans);   //first elemtent index making pair to each element in a given obj.
+    }
+
+
+
+let ans=[];
+for(let num of employeeDetails){
+   if (num.empName.includes("Shingh")) {
+     ans.push(num);
+}
+   
+}
+console.log(...ans);
+
+
+let ans=[];
+for(let num of employeeDetails){
+   if (num.empName=="Shivani Tomer") {
+     ans.push(num);
+}
+   
+}
+console.log(...ans);
+
+
+
+
+for(let num of employeeDetails){
+   if (num.empName=="Shivani Tomer") {
+     let ans=[];
+     ans.push(num);
+}
+   
+}
+
+console.log(...ans);  // let having the block level scope.
+
+
+const arr = [10, 20, 30, 40, 50, 60];
+let ans;
+
+for (let c = 0; c < arr.length; c++) {
+  if (c === 1 || c === 4) {
+    ans = arr.pop(); 
+  } else if (c === 4) {
+    break; 
+  } else {
+    continue;
+  }
+}
+
+console.log(ans); 
+console.log(arr); 
+
+
+
+const arr = [10, 20, 30, 40, 50, 60];
+let ans=[];
+const newarr=[];
+for (let c = 0; c < arr.length; c++) {
+  if (c === 1 || c===2) {  //normal array have index(1,2 -index) accessibility.
+    ans.push(arr[c]); 
+  } 
+}
+
+
+for (let c of arr) {
+  if (c === 10 || c===40) {  /* we don't have index accessibility / rathar than use the  
+                              Origional value of arr for comparision */
+    ans.push(c); 
+  } 
+}
+
+
+for (let c in arr) {
+  if (c === 50) {   /* we don't have index accessibility / rathar than use the Origional
+                     value of arr for comparision */
+    ans.push(c);    
+  } 
+}
+
+arr.forEach((num)=>{
+  if(num>30){
+    newarr.push(num);
+    return;
+  }
+})
+
+const filteredArr = arr.filter((num)=>num>20);
+
+console.log(`myNew Arr:  ${newarr}`); /*using forEach & add return if we are using {}/ 
+block scope  braces for callback function */
+console.log( `Ans Arr:  ${ans}`);  //using forof/forin/simple for loop
+
+console.log( `Filtered Arr:  ${filteredArr}`);  // using Inbuilt filter() method
+console.log( `Origional Arr:  ${arr}`); // declared Origional array.
+
+
+
+
+const arr = [10, 20, 30, 40, 50, 60];
+
+const newArr= arr.map((item)=>{
+  
+  return item*2;
+  
+  
+});
+
+
+const b=newArr.map((item)=>item+2);
+
+
+const usingForEach = arr.forEach((num)=> {return num*2})
+
+console.log(usingForEach);  /*undefined output:  because doing changes in local scope. 
+so don't use forEach loop for calculation of all array elements*/
+
+
+
+
+console.log( `With Return Keyword Mapped Arr:  ${newArr}`);  // using Inbuilt map() method
+
+console.log(`Without Return Keyword Mapped value: ${b}`);
+
+console.log( `Origional Arr:  ${arr}`); // declared Origional array.
+
+
+
+
+
+
+
+
+//InBuilt Reduce Function
+const arr = [10, 20, 30, 40, 50, 60];
+
+const sumOfAll= arr.reduce((curr,item)=>{
+  
+  return curr+item;
+  
+  
+},0);
+
+
+const maxOfAll = arr.reduce((max,curr)=>{
+  
+  if(curr>max){
+    max=curr;
+    
+  }
+  return max;
+  
+  
+},-1);
+
+const minOfAll = arr.reduce((min,curr)=>{
+  
+  if(curr<min){
+    min=curr;
+    
+  }
+  return min;
+  
+  
+},arr[1]);
+
+console.log(`With Return Keyword minOfAll value: ${minOfAll}`);
+
+console.log(`With Return Keyword sumOfAll value: ${sumOfAll}`);
+
+
+console.log(`With Return Keyword maxOfAll value: ${maxOfAll}`);
+
+console.log( `Origional Arr:  ${arr}`); 
+
+
+
+
+
+//Custom Callback function example ==>
+
+function printTheNo(arr,name,rollNo, callback){
+  let result =[];
+  for(let i=0;i<newarr.length;i++){
+    result.push(callback(newarr[i]));
+  }
+  console.log(`This is: ${name} & Roll no. is:  ${rollNo}`)
+  return result;
+ 
+  
+}
+
+function square(num){ //square function behaving a callback function passed a argument while calling
+  return num*num;
+  
+}
+
+const myNoDetails={
+  name: "Rohan Yadav",
+  rollNo : 22,
+  email : "rohan@gmail.com"
+}
+const newarr=[6,8,9,4,3,2,1];
+const infoDetail= printTheNo(newarr, myNoDetails.name,myNoDetails.rollNo ,square);
+
+console.log(infoDetail);
+
+
+
+
+
+const arr=["Katrina Kaif", "Kriti Sanan", "kiayara Advani", "Priyanka Chopra", " Dipeeka Padukon"]
+
+function printMessage(){
+  arr.push("Rasmika Mandhana");
+  
+}
+
+setTimeout(()=>{
+  
+  printMessage();
+  console.log(arr)
+ 
+}, 3000);
+
+
+const newarr=[1,2,3,6,9,12,13,16];
+
+
+function OddNo(num){
+    return num%2==1;
+  }
+  
+  
+  const b=newarr.filter(OddNo)
+  console.log(b);
+  
+  
+
+function printOddNo(arr) {
+  for (let c = 0; c < arr.length; c++) {
+    if (arr[c] % 2 == 1) { 
+      console.log(arr[c]); 
+    }
+  }
+}
+
+printOddNo(newarr);
+
+
+function printOdd(arr) {
+  let result = [];
+  for (let c = 0; c < arr.length; c++) {
+    if (arr[c] % 2 === 1) {
+      result.push(arr[c]); 
+    }
+  }
+  return result; 
+}
+
+const c = printOdd(newarr);
+console.log(c);
+
+
+
+
+
+const arr =[1,6,7,8,9]
+
+function printNo(arr, callback){
+  result=[];
+  for(let v of arr)
+  result.push(callback(v))
+  return result;
+}
+function productOfTwo(num){
+  
+  return num*num;
+}
+
+let v=printNo(arr, productOfTwo )
+console.log(v)
+
+
+// For of is used to iterate over the value
+// For in is used to iterate over the index not value ok.
+
+const userName=["Rahul", "Ramesh","Ronak"];
+
+const ans=[];
+userName.forEach((num, i)=>{
+  
+  ans.push(num);
+  
+})
+console.log(ans);
+
+const userList=[];
+const newUserList= userName.map((num)=>{
+      userList.push(num);
+})
+console.log(userList);
+
+const city=["Navi Mumbai", "Pune", "Bengaluru", " Chennai", " New Delhi"];
+
+
+

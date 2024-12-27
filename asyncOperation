@@ -1,0 +1,75 @@
+
+
+Callback : promise : Await are the 3 term which is use for the asynchronous operation/ action  in javascript .
+
+Callback function : 
+
+Calling the other function as a argument in main or parent function in javascript.
+
+
+Synchronous function : the function which is running out in a linear fasion or maintaing some order or some sequence queue to run the particular line of code or block and functions of code .
+
+Running the single process or thread at a time.
+
+Suppose i have 3 function like 
+
+Fun 1(){}
+Fun 2 (){}
+Fun 3() {}
+
+Then the fun 1 will execute first  
+The next function fun2 will execute after that fun3 ok .
+
+
+Asynchronous function :
+The function which are not maintaining the sequence queue to run the particular line of code or block and function of code.
+
+Running the multipe process or thread at a time.
+
+Let's take same example 
+Fun 1{
+Taking 1sec time  for execution }
+
+Fun 2{
+Taking 2sec time for execution 
+}
+Fun3 {
+Taking 3sec time for execution
+  }
+
+Now here fun 1 {} will execute only till the waiting period of 2sec 
+Then fun 2 {}
+Will run till the waiting period of 3sec of time window 
+Then fun 3{} finally will see in our list.
+
+
+This is one type of async operation or action in js or server which is handling with the help of 
+
+Callback or promise or await function in js .
+
+
+Let's the other function wait for the execution of main  function.
+
+
+Promise :
+Promise is nothing but it's used to handle the asynchronous operation or action.
+And find out the whether the called function is completed or still present in pending  state. Means to check the status of calling function which is successfully completed or rejected.
+
+
+It's having three state 
+
+Pending 
+Fulfilled
+Rejected.
+
+.then ()
+This callback 
+Method is used to resolve the full filled state of promise.
+
+. catch () this callback 
+Method is used to resolve the  rejected state of promise.
+
+
+. finnally () block method is used to resolve the status of either full filled or rejected promise .
+
+

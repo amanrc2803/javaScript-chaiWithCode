@@ -1,0 +1,223 @@
+
+let array= ["Sanjay", "Aamir", "Salman", "Sharukh", "Akshay", "Anil","Ajay"];
+
+//slice 4 will exclude - will break down the element from start to end.
+let newarr=array.slice(1,4);
+console.log(newarr);
+//[ 'Aamir', 'Salman', 'Sharukh' ]
+
+
+/*If We want to add anywhere in the position of array index so we can do that. - splice.
+
+// this will add from index at 3 position & 
+if you don't want remove anything from the exsting array
+then after adding inditial index for adding the value we can mention with 0 only  *
+
+this will not creating new array . it modifying exsting array only.
+*/
+array.splice(3, 0, "Arjun Rampal","Ranveer Singh", "Siddharth", "Katrina kaif");
+
+console.log(array);
+/*
+[
+  'Sanjay',        'Aamir',
+  'Salman',        'Arjun Rampal',
+  'Ranveer Singh', 'Siddharth',
+  'Katrina kaif',  'Sharukh',
+  'Akshay',        'Anil',
+  'Ajay'
+]
+*/
+
+
+// want to remove 2 value from exsting array then insted of 0 we can place 2
+
+array.splice(3, 2, "Ronit Roy");
+
+console.log(array);
+/*[
+  'Sanjay',    'Aamir',
+  'Salman',    'Ronit Roy',
+  'Siddharth', 'Katrina kaif',
+  'Sharukh',   'Akshay',
+  'Anil',      'Ajay'
+] */
+
+// Check this is array or not -- isArray()
+const bt=Array.isArray(array);
+console.log(bt);
+//true
+
+
+
+// check array element is present or not at particular index -- indexOf()
+
+let Van =["Kativan", "Usan", "Patjhar","Sisam"];
+
+let vrindavan= Van.indexOf("Sisam",2);
+console.log(vrindavan);
+//3
+
+/* find() -- will find the first index value itself 
+findIndex() -- will find the first index no. olny not value.
+*/
+
+let ages= [10, 13, 18, 20, 25];
+
+function voteIndex(ages){
+  
+  return ages>18;
+};
+console.log("find:"+ages.find(voteIndex));
+//find:20
+
+console.log("findIndex: "+ages.findIndex(voteIndex));
+//findIndex: 3
+
+/* Fiter() --> will filter out the result based on specific condition.
+
+this will create a new an array for specific condition is true 
+*/
+
+console.log("flter The voter from an array: "+ages.filter(voteIndex));
+//flter The voter from an array: 20,25
+
+
+/* some() --> will check the particular condition is getting true or not in an array.
+ here 18 is present in the array so it will return it boolean true value. */
+
+
+
+const arr =function(ages){
+  
+  return ages>=18;
+};
+
+
+console.log("18 is present or not using some:"+ages.some(arr));
+//18 is present or not using some:true
+
+
+/* will check every value is match 
+with condition or not means condition is true for every value or not in boolean form --> every() */
+
+
+let greatt18=function(ages){
+  
+  return ages>=18;
+};
+
+
+console.log("every value is greater than 18 or not using every :"+ages.every(greatt18));
+//every value is greater than 18 or not using every :false
+
+
+/* includes()  --> will check the array element is present or not in case senstive form
+will return boolean value . */
+
+const ad=[56,64,12,34, "Rahul"];
+
+console.log("value is present in array using includes:"+ad.includes("Rahul"));
+//value is present in array using includes:true
+
+
+/* indexOf --> will check the value is present or not means it will
+search it at particular index value is avilable or not  will return -1 
+for not in array or if yes present  then return index only not value / 
+*/
+let cricketer=["Dhoni","Kohli","Rohit","Bumrah","Surya", "Hardik"," Kl","Jaddu"];
+
+console.log("value is present in array using indexOf:"+cricketer.indexOf("Jaddu", 3));
+//value is present in array using indexOf:7
+
+
+// Use toString() - for array to string conversion after this we can't 
+let a=["karan", "Arjun"];
+console.log(a.toString());
+//karan,Arjun
+
+
+// Value get valueOf() - to get the array value
+console.log(a.valueOf());
+console.log(a);
+
+// fill to get same value for every index --> fiil()
+let fb= a.fill("Ramji") 
+console.log(fb);
+
+
+
+
+function actressValue(){
+  let actress=["Katrina Kaif", "Rakul Preet","Karina","Kangana", "Kriti","Priyanka"];
+  actress.forEach((value,index)=>{
+     console.log(index +":"+value);
+ } );
+ 
+  
+}
+actressValue()
+
+
+/*Rest Operator at --> (...a) for multiple parameter
+Spread Operator -- > (...[1, 2, 4, 6, 8])
+*/
+const myFunc = function(...a) {
+  let sum = 0;
+  for (let i = 0; i < a.length; i++) {
+    sum += a[i]; // Correct sum operation
+  }
+  return sum;
+};
+
+
+
+console.log(myFunc(...[1, 2, 4, 6, 8])); // Spread the array into individual arguments
+
+
+
+
+Html collection means  similar to array[] is different from nodelist . We can convert nodelist to array if want to work with map or other similar method in nodelist. Otherwise use query selectior to select the element & use forEach instead of map function. 
+
+
+
+Ul> li > t1>t2
+
+We have added two addeventlistner(click, ()=>{ }); click event for li >t1 & t2 then li>t1 will work fine but when I click at li>t2 then it's having event propagation. So it's create the scenario of event bubbling . Means niche se uper click event run hoga .
+
+Niche vala jab click hoga at the same time parent vala apne aap click event run hoga with the help of bubbling( child to parents relationship event).
+
+Agar both 
+document.getElementById(t1).('click', function(event){
+ alert("event is clicked at t1 tab");
+},false);
+
+document.getElementById(t2).('click', function(event){
+ alert("event is clicked at t2 tab");
+},false);
+
+false value at the end generate the bubbling child to parents click event.
+True vale at end generate the non - bubbling event means parent to child click event will execute. First parent click will happening then child.
+
+Want to stop bubbling then we can use stopPropogation( )
+Want to stop to access the particular site then we can use defaultPrevent(). 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
